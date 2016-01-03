@@ -29,7 +29,7 @@ If everything goes well you'll find the executable files in the 'bin/' folder.
 
 # Running
 
-First of all, make sure that an instance of Malamute is running, if not start one:
+1) First of all, make sure that an instance of Malamute is running. If not, start one:
 
 ```
 $> malamute
@@ -42,7 +42,7 @@ I: 16-01-03 19:41:27 loading configuration from 'malamute.cfg'...
 N: 16-01-03 19:41:27 server is using NULL security
 ```
 
-Now you can run your worker processes:
+2) Now you can run your worker processes:
 
 ```
 $> ./alaska
@@ -56,7 +56,30 @@ I: 16-01-03 18:06:19 Connected (AW::wildhorse.local::9352-BE39)
 I: 16-01-03 18:06:19 Alaska worker ready (pool:4)
 ```
 
-And send some service requests:
+Note that, by default, the worker is subscribed to the service name 'default' and receives requests addressed to any subject. This subject string should match a the file name (without the extension) of a Lua script located in the scripts folder. Please, take a look at the default configuration file:
+
+```
+worker
+    background = "0"
+    workdir = "."
+    verbose = "0"
+    syslog = "0"
+    scripts
+        dir = "../scripts"
+    pool
+        size = "4"
+    broker
+        endpoint = "tcp://127.0.0.1:9999"
+        timeout = "1000"
+    service
+        address = "default"
+        filter = ".*"
+    errors
+        notify = "1"
+        mailbox = "awerr"
+```
+
+3) Now, you can send some service requests using the Alas Producer:
 
 ```
 $> for run in {1..5}; do echo "{\"c\":${run}}" | ./alas; done
@@ -67,6 +90,27 @@ Service RQ
 -Content:
 {"c":1}
 ...
+```
+
+If no parameter is specified, the service request will we sent for the service named 'default' and with 'dump' as subject value. So, this will trigger the execution of the 'dump.lua' script in the worker side.
+
+This is the content of the 'dump.lua' file located at the scripts directory of the worker:
+
+```lua
+-----------------------------------------------------
+-- Dump Service
+-----------------------------------------------------
+-- Parses a JSON representation of the Alaska context global
+-- variable and dumps the resulting table using Penlight
+-----------------------------------------------------
+
+local s = string.rep('-', 80)
+print(s..'\nContext dump from Lua:')
+
+local ctx = require 'cjson'.decode(alaskaContext)
+require 'pl.pretty'.dump(ctx)
+
+print(s)
 ```
 
 ## Tips & Tricks
