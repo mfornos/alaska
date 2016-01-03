@@ -56,7 +56,7 @@ I: 16-01-03 18:06:19 Connected (AW::wildhorse.local::9352-BE39)
 I: 16-01-03 18:06:19 Alaska worker ready (pool:4)
 ```
 
-Note that, by default, the worker is subscribed to the service name 'default' and receives requests addressed to any subject. This subject string should match a the file name (without the extension) of a Lua script located in the scripts folder. Please, take a look at the default configuration file:
+Note that, by default, the worker is subscribed to the service name 'default' and receives requests addressed to any subject. However, this subject string should match a the file name (without the extension) of a Lua script located in the scripts folder of the worker. Please, take a look at the default configuration file:
 
 ```
 worker
