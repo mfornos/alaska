@@ -13,7 +13,7 @@ This model provides:
 
 The Technology Readiness Level of this project is __experimental proof of concept__.
 
-# Requirements
+# Dependencies
 
 1. [CMake](https://cmake.org)
 2. [Malamute](https://github.com/zeromq/malamute)
