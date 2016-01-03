@@ -44,7 +44,7 @@ wk_name (char **name, const char *prefix)
 }
 
 static void
-wk_connect (mlm_client_t * c, const char *prefix)
+wk_connect (mlm_client_t *c, const char *prefix)
 {
     char *wname;
     wk_name (&wname, prefix);
