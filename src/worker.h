@@ -12,11 +12,11 @@
 
 /**
  * @brief  Starts a worker process
- * 
- * Starts a worker process. 
+ *
+ * Starts a worker process.
  * This function blocks until the process is interrupted.
- * 
- * @param filename  The configuration file. 
+ *
+ * @param filename  The configuration file.
  *                  If NULL is passed the worker will create a default configuration.
  * @param force_foreground  Forces the process to run in foreground.
  */

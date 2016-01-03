@@ -3,6 +3,7 @@
 *.o
 *.dylib
 *.so
+*.BAK
 Makefile
 bin/
 *.cmake
