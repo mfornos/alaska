@@ -46,29 +46,27 @@ message(STATUS "Found 'lua' at: ${LUA}")
 ########################################################################
 # Executables
 ########################################################################
-file(GLOB_RECURSE ALASKA_SOURCES "${SOURCE_DIR}/src/*.c")
-file(GLOB_RECURSE ALASKA_HEADERS "${SOURCE_DIR}/src/*.h")
+file( GLOB_RECURSE ALASKA_SOURCES "${SOURCE_DIR}/src/*.c" )
+file( GLOB_RECURSE ALASKA_HEADERS "${SOURCE_DIR}/src/*.h" )
 
-set (ALASKA_INCLUDE_DIRS "")
-foreach (_headerFile ${ALASKA_HEADERS})
-    get_filename_component(_dir ${_headerFile} PATH)
-    list (APPEND ALASKA_INCLUDE_DIRS ${_dir})
+set ( ALASKA_INCLUDE_DIRS "" )
+foreach ( _headerFile ${ALASKA_HEADERS} )
+    get_filename_component( _dir ${_headerFile} PATH )
+    list ( APPEND ALASKA_INCLUDE_DIRS ${_dir} )
 endforeach()
-list(REMOVE_DUPLICATES ALASKA_INCLUDE_DIRS)
+list( REMOVE_DUPLICATES ALASKA_INCLUDE_DIRS )
 
-include_directories(${ALASKA_INCLUDE_DIRS})
-add_executable (alaska ${ALASKA_SOURCES})
-
+# Alaska
+include_directories( ${ALASKA_INCLUDE_DIRS} )
+add_executable ( alaska ${ALASKA_SOURCES} )
 target_link_libraries( alaska ${MLM} ${CZMQ} ${LUA} )
-
 set_target_properties(
     alaska
     PROPERTIES  RUNTIME_OUTPUT_DIRECTORY "${SOURCE_DIR}/bin"
 )
 
-# Alaska Tools
-
-add_executable (alas ${SOURCE_DIR}/tools/alas.c)
+# Tools
+add_executable ( alas ${SOURCE_DIR}/tools/alas.c )
 target_link_libraries( alas ${MLM} ${CZMQ} )
 set_target_properties(
     alas
