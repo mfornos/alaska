@@ -1,0 +1,10 @@
+*~
+*.a
+*.o
+*.dylib
+*.so
+Makefile
+bin/
+*.cmake
+CMakeFiles/
+CMakeCache.txt
