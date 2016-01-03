@@ -92,7 +92,7 @@ Service RQ
 ...
 ```
 
-If no parameter is specified, the service request will be sent for a service named 'default' and with 'dump' as subject value. So, this will trigger the execution of the 'dump.lua' script in the worker side.
+If no parameter is specified, the service request will be sent for a service named 'default' and with 'dump' as subject value. So, this request will trigger the execution of the 'dump.lua' script in the worker side.
 
 This is the content of the 'dump.lua' file located at the scripts directory of the worker:
 
