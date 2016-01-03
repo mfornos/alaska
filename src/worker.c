@@ -19,7 +19,7 @@
 
 #define DEFAULT_TIMEOUT          "1000"
 #define DEFAULT_POOL_SIZE        "4"
-#define DEFAULT_SCRIPTS_DIR      "scripts"
+#define DEFAULT_SCRIPTS_DIR      "services"
 #define DEFAULT_ERR_MAILBOX      "awerr"
 #define SCRIPT_CONTEXT_NAME      "alaskaContext"
 

@@ -65,7 +65,7 @@ worker
     verbose = "0"
     syslog = "0"
     scripts
-        dir = "../scripts"
+        dir = "../services"
     pool
         size = "4"
     broker
