@@ -5,9 +5,9 @@ Alaska Workers is a distributed processing system built on top of [Malamute's me
 This model provides:
 
 * Multiple messaging patterns
-** On-demand streams
-** Mailboxes
-** Service request distribution
+    * On-demand streams
+    * Mailboxes
+    * Service request distribution
 * Advanced pattern matching
 * Load balancing
 * Reliable delivery
