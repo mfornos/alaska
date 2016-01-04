@@ -1,11 +1,14 @@
 # Alaska
 
-Alaska Workers is a distributed processing system built on top of [Malamute's service model](https://github.com/zeromq/malamute/blob/master/MALAMUTE.md). 
+Alaska Workers is a distributed processing system built on top of [Malamute's messaging model](https://github.com/zeromq/malamute/blob/master/MALAMUTE.md). 
 
 This model provides:
 
-* Subscription by service name
-* Filtering by subject
+* Multiple messaging patterns
+** On-demand streams
+** Mailboxes
+** Service request distribution
+* Advanced pattern matching
 * Load balancing
 * Reliable delivery
 

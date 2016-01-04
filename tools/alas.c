@@ -17,7 +17,7 @@
 #define DEFAULT_ENDPOINT   "tcp://127.0.0.1:9999"
 #define DEFAULT_ADDRESS    "default"
 #define DEFAULT_SUBJECT    "dump"
-#define PRODUCER_NAME       "alas_producer"
+#define PRODUCER_NAME      "alas_producer"
 
 #define D(a,b) a = a ? a : b
 
@@ -76,7 +76,7 @@ main (int argc, char *argv[])
         usage ();
 
     while ((c = getopt_long (argc, argv, "he:a:s:",
-                             long_options, &option_index)) != -1) {
+            long_options, &option_index)) != -1) {
         switch (c) {
         case 'h':
             usage ();
